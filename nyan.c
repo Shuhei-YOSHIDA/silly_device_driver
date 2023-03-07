@@ -13,12 +13,7 @@ static char buffer[4] = "Nyan";
 
 static ssize_t driver_read(struct file *File, char *user_buffer, size_t count,
                            loff_t *offs) {
-  /*user_buffer[0] = 'N';*/
-  /*user_buffer[1] = 'y';*/
-  /*user_buffer[2] = 'a';*/
-  /*user_buffer[3] = 'n';*/
-  copy_from_user(buffer, user_buffer, 4);
-  /*return 1;*/
+  copy_to_user(user_buffer, buffer, 4);
   return 4;
 }
 
